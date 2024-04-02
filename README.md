@@ -9,3 +9,8 @@ Color Pattern Game is a simple web-based memory game where players repeat color 
 3. Repeat the sequence by clicking on the colored buttons in the same order.
 4. The game gets progressively challenging as you successfully complete each round.
 
+## Pattern
+ red   =  red
+ yellow = red -> yellow
+ green  = red -> yellow -> green
+ red    = red -> yellow -> green -> red
