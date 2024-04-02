@@ -1,3 +1,4 @@
+
 var buttonColours = ["red", "blue", "green", "yellow"];
 
 var gamePattern = [];
@@ -8,14 +9,24 @@ var level = 0;
 
 var started = false;
 
-$(document).keypress(function () {
+var started = false;
+
+$("#start").on("click", function () {
     if (!started) {
-        //3. The h1 title starts out saying "Press A Key to Start", when the game has started, change this to say "Level 0".
         $("#level-title").text("Level " + level);
         nextSequence();
         started = true;
     }
 });
+
+$(document).on("keypress", function (e) {
+    if (!started && e.which === 13) {
+        $("#level-title").text("Level " + level);
+        nextSequence();
+        started = true;
+    }
+});
+
 
 $(".btn").click(function () {
     var userChosenColour = $(this).attr("id"); // or alert($(this).attr('id'));
@@ -48,11 +59,12 @@ else
       $("body").removeClass("game-over");
   }, 200);
 
-  $("#level-title").text("Game Over, Press Any Key to Restart");
+  $("#level-title").text("Game Over, Press Enter Key to Restart");
   startOver();
 
   }
 }
+
 
 function nextSequence() {
   userClickedPattern = [];
@@ -86,12 +98,3 @@ function startOver(){
   started = false;
 
 }
-
-
-
-
-
-
-
-
-
